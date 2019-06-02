@@ -22,6 +22,11 @@ public class ParameterController {
         return new ResponseEntity<>(this.parameterService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/jdbc/")
+    public ResponseEntity<List<Parameter>> parameterList(){
+        return new ResponseEntity<>(this.parameterService.parameterList(), HttpStatus.OK);
+    }
+
     @PostMapping("/upload/xlsx/")
     public ResponseEntity<?> uploadXLSX(@RequestParam("file") MultipartFile file){
         try{

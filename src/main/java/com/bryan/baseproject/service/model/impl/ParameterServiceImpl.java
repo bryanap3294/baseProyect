@@ -2,6 +2,7 @@ package com.bryan.baseproject.service.model.impl;
 
 import com.bryan.baseproject.model.Parameter;
 import com.bryan.baseproject.model.dto.ParameterXLSXDTO;
+import com.bryan.baseproject.repository.ParameterJDBCRepository;
 import com.bryan.baseproject.repository.ParameterRepository;
 import com.bryan.baseproject.service.custom.ValidateXLSXParameterService;
 import com.bryan.baseproject.service.model.ParameterService;
@@ -23,11 +24,19 @@ public class ParameterServiceImpl implements ParameterService {
     protected ParameterRepository parameterRepository;
 
     @Autowired
+    protected ParameterJDBCRepository parameterJDBCRepository;
+
+    @Autowired
     protected ValidateXLSXParameterService validateXLSXParameterService;
 
     @Override
     public List<Parameter> findAll() {
         return this.parameterRepository.findAll();
+    }
+
+    @Override
+    public List<Parameter> parameterList() {
+        return this.parameterJDBCRepository.findAll();
     }
 
     @Override

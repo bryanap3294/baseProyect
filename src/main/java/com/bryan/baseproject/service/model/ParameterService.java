@@ -10,5 +10,6 @@ import java.util.List;
 public interface ParameterService {
 
     List<Parameter> findAll();
+    List<Parameter> parameterList();
     Object uploadXLSX(MultipartFile file) throws Exception;
 }
