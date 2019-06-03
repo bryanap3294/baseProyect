@@ -8,6 +8,7 @@ import java.util.List;
 @Repository
 public interface ParameterJDBCRepository {
 
-    List<Parameter> findAll();
+    List<Parameter> parameterList();
+    Integer parameterSave(Parameter parameter);
 
 }

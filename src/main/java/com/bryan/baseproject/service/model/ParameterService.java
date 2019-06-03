@@ -11,5 +11,6 @@ public interface ParameterService {
 
     List<Parameter> findAll();
     List<Parameter> parameterList();
+    Integer parameterSave(Parameter parameter);
     Object uploadXLSX(MultipartFile file) throws Exception;
 }

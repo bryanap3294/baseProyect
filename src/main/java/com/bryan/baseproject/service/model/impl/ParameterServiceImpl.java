@@ -36,7 +36,12 @@ public class ParameterServiceImpl implements ParameterService {
 
     @Override
     public List<Parameter> parameterList() {
-        return this.parameterJDBCRepository.findAll();
+        return this.parameterJDBCRepository.parameterList();
+    }
+
+    @Override
+    public Integer parameterSave(Parameter parameter) {
+        return this.parameterJDBCRepository.parameterSave(parameter);
     }
 
     @Override
