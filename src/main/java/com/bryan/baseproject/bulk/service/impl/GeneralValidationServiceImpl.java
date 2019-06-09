@@ -8,7 +8,13 @@ public class GeneralValidationServiceImpl implements GeneralValidationService {
 
   @Override
   public Boolean isIntegerCSV(String value) {
-    return null;
+    try{
+      Double doubleValue = new Double(value);
+      doubleValue.intValue();
+    }catch(Exception e) {
+      return false;
+    }
+    return true;
   }
 
   @Override
@@ -18,6 +24,10 @@ public class GeneralValidationServiceImpl implements GeneralValidationService {
 
   @Override
   public Boolean isNull(String value) {
-    return null;
+    if(value==null || value.trim().equals("")){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
