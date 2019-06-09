@@ -13,4 +13,5 @@ public interface ParameterService {
     List<Parameter> parameterList();
     Integer parameterSave(Parameter parameter);
     Object uploadXLSX(MultipartFile file) throws Exception;
+    Object uploadCSV(MultipartFile file) throws Exception;
 }

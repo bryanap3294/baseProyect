@@ -4,8 +4,8 @@ import java.util.List;
 
 public class GenericValidationDTO<T> {
 
-  public T t;
-  public List<String> errorList;
+  private T t;
+  private List<String> errorList;
 
   public T getT() {
     return t;
