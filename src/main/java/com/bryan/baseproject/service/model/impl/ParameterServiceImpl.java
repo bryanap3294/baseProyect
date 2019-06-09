@@ -33,6 +33,7 @@ public class ParameterServiceImpl implements ParameterService {
     @Autowired
     protected ValidateXLSXParameterService validateXLSXParameterService;
 
+    @Autowired
     protected GenericValidationService genericValidationService;
 
     @Override
@@ -88,14 +89,16 @@ public class ParameterServiceImpl implements ParameterService {
         List<List<String>> rowList = readCSV(file);
         List<Parameter> parameterList = new ArrayList<>();
         List<String> errorList = new ArrayList<>();
+        List<GenericValidationDTO> genericValidationDTOList = new ArrayList<>();
         for(List<String> row: rowList){
             if(rowList.indexOf(row)!=0){
                 GenericValidationDTO<Parameter> genericValidationDTO = this.genericValidationService.validateRowCSV(row);
                 parameterList.add(genericValidationDTO.getT());
                 errorList.addAll(genericValidationDTO.getErrorList());
+                genericValidationDTOList.add(genericValidationDTO);
             }
         }
-        return null;
+        return genericValidationDTOList;
     }
 
     public List<List<String>> readCSV(MultipartFile file) throws Exception{

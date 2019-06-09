@@ -41,4 +41,14 @@ public class ParameterController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/upload/csv/")
+    public ResponseEntity<?> uploadCSV(@RequestParam("file") MultipartFile file){
+        try{
+            Object obj = this.parameterService.uploadCSV(file);
+            return new ResponseEntity<>(obj, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

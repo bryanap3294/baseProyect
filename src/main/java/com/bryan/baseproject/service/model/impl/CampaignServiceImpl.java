@@ -4,10 +4,12 @@ import com.bryan.baseproject.model.Campaign;
 import com.bryan.baseproject.repository.CampaignRepository;
 import com.bryan.baseproject.service.model.CampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CampaignServiceImpl implements CampaignService {
 
   @Autowired
